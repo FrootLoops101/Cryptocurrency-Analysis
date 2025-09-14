@@ -44,7 +44,7 @@ pip (Python package manager)
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/crypto-analysis.git
+git clone https://github.com/FrootLoops101/crypto-analysis.git
 cd crypto-analysis
 ```
 
@@ -220,7 +220,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for
 ### Development Setup
 ```bash
 # Clone and setup development environment
-git clone https://github.com/your-username/crypto-analysis.git
+git clone https://github.com/FrootLoops101/crypto-analysis.git
 cd crypto-analysis
 pip install -r requirements-dev.txt
 python -m pytest tests/
