@@ -1,4 +1,4 @@
-### Cryptocurrency Analysis Multi-Agent System
+# Cryptocurrency Analysis Multi-Agent System
 
 A sophisticated multi-agent system built with CrewAI that provides comprehensive cryptocurrency market analysis by combining real-time news sentiment and historical price data analysis.
 
