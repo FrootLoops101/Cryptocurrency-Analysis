@@ -1,69 +1,74 @@
-# API Setup Guide
+# 🔑 API Setup Guide
+
 Complete guide for setting up all required APIs for the Cryptocurrency Analysis Multi-Agent System.
 
-## API Overview
-API Service	Purpose	Free Tier	Paid Plans	Setup Difficulty
-Groq	LLM Processing	6,000 TPM	$0.27/1M tokens	⭐⭐ Easy
-Exa	News Search	1,000 searches	$10/10K searches	⭐⭐ Easy
-Alpha Vantage	Price Data	25 calls/day	$50/mo unlimited	⭐ Very Easy
-Total Setup Time: ~15 minutes
-Monthly Free Usage: ~100 analyses
-Paid Monthly Cost: ~$20-50 for heavy usage
+## 📊 API Overview
 
-## Groq API Setup
-Why Groq?
-Speed: 10x faster inference than traditional APIs
+| API Service | Purpose | Free Tier | Paid Plans | Setup Difficulty |
+|-------------|---------|-----------|------------|------------------|
+| **Groq** | LLM Processing | 6,000 TPM | $0.27/1M tokens | ⭐⭐ Easy |
+| **Exa** | News Search | 1,000 searches | $10/10K searches | ⭐⭐ Easy |
+| **Alpha Vantage** | Price Data | 25 calls/day | $50/mo unlimited | ⭐ Very Easy |
 
-Cost: Competitive pricing with generous free tier
+**Total Setup Time**: ~15 minutes  
+**Monthly Free Usage**: ~100 analyses  
+**Paid Monthly Cost**: ~$20-50 for heavy usage
 
-Quality: Access to Llama 3.1 models
+## 🚀 Groq API Setup
 
-Reliability: 99.9% uptime SLA
+### Why Groq?
+- **Speed**: 10x faster inference than traditional APIs
+- **Cost**: Competitive pricing with generous free tier
+- **Quality**: Access to Llama 3.1 models
+- **Reliability**: 99.9% uptime SLA
 
-Setup Steps
-Create Account
+### Setup Steps
 
-Visit console.groq.com
+1. **Create Account**
+   - Visit [console.groq.com](https://console.groq.com/)
+   - Sign up with email or GitHub
+   - Verify your email address
 
-Sign up with email or GitHub
+2. **Generate API Key**
+   ```bash
+   # Navigate to API Keys section
+   # Click "Create API Key"
+   # Name: "crypto-analysis-system"
+   # Copy the key (starts with gsk_...)
+   ```
 
-Verify your email address
+3. **Set Environment Variable**
+   ```bash
+   # Linux/Mac
+   export GROQ_API_KEY="gsk_your_key_here"
+   echo 'export GROQ_API_KEY="gsk_your_key_here"' >> ~/.bashrc
+   
+   # Windows
+   set GROQ_API_KEY=gsk_your_key_here
+   ```
 
-Generate API Key
+4. **Test Connection**
+   ```python
+   from langchain_groq import ChatGroq
+   
+   llm = ChatGroq(
+       model="groq/llama-3.1-8b-instant",
+       api_key="your_key"
+   )
+   
+   response = llm.invoke("Hello")
+   print(f"Success: {response.content}")
+   ```
 
-bash
-# Navigate to API Keys section
-# Click "Create API Key"
-# Name: "crypto-analysis-system"
-# Copy the key (starts with gsk_...)
-Set Environment Variable
+### Rate Limits & Pricing
+| Tier | TPM Limit | RPM Limit | Price per 1M Tokens |
+|------|-----------|-----------|---------------------|
+| **Free** | 6,000 | 30 | $0.00 |
+| **Dev** | 60,000 | 300 | $0.27 |
+| **Pro** | 600,000 | 3,000 | $0.27 |
 
-bash
-# Linux/Mac
-export GROQ_API_KEY="gsk_your_key_here"
-echo 'export GROQ_API_KEY="gsk_your_key_here"' >> ~/.bashrc
-
-# Windows
-set GROQ_API_KEY=gsk_your_key_here
-Test Connection
-
-python
-from langchain_groq import ChatGroq
-
-llm = ChatGroq(
-    model="groq/llama-3.1-8b-instant",
-    api_key="your_key"
-)
-
-response = llm.invoke("Hello")
-print(f"Success: {response.content}")
-Rate Limits & Pricing
-Tier	TPM Limit	RPM Limit	Price per 1M Tokens
-Free	6,000	30	$0.00
-Dev	60,000	300	$0.27
-Pro	600,000	3,000	$0.27
-Available Models
-python
+### Available Models
+```python
 # Recommended models
 models = {
     "groq/llama-3.1-8b-instant": {
@@ -85,49 +90,51 @@ models = {
         "recommended": True
     }
 }
-🔍 Exa API Setup
-Why Exa?
-Semantic Search: Better than keyword-based search
+```
 
-Real-time: Latest news and content
+## 🔍 Exa API Setup
 
-Summaries: Built-in content summarization
+### Why Exa?
+- **Semantic Search**: Better than keyword-based search
+- **Real-time**: Latest news and content
+- **Summaries**: Built-in content summarization
+- **Quality**: Filters out spam and low-quality content
 
-Quality: Filters out spam and low-quality content
+### Setup Steps
 
-Setup Steps
-Create Account
+1. **Create Account**
+   - Visit [exa.ai](https://exa.ai/)
+   - Sign up with email
+   - Complete onboarding
 
-Visit exa.ai
+2. **Get API Key**
+   ```bash
+   # Visit Dashboard -> API Keys
+   # Click "Generate New Key"
+   # Copy the key
+   ```
 
-Sign up with email
+3. **Test API**
+   ```python
+   from exa_py import Exa
+   
+   exa = Exa(api_key="your_key")
+   result = exa.search("Bitcoin news", num_results=3)
+   
+   print(f"Found {len(result.results)} results")
+   for item in result.results:
+       print(f"- {item.title}")
+   ```
 
-Complete onboarding
+### Usage Limits & Pricing
+| Plan | Searches/Month | Price | Features |
+|------|----------------|-------|----------|
+| **Free** | 1,000 | $0 | Basic search |
+| **Starter** | 10,000 | $10 | Summaries included |
+| **Pro** | 100,000 | $50 | Advanced filters |
 
-Get API Key
-
-bash
-# Visit Dashboard -> API Keys
-# Click "Generate New Key"
-# Copy the key
-Test API
-
-python
-from exa_py import Exa
-
-exa = Exa(api_key="your_key")
-result = exa.search("Bitcoin news", num_results=3)
-
-print(f"Found {len(result.results)} results")
-for item in result.results:
-    print(f"- {item.title}")
-Usage Limits & Pricing
-Plan	Searches/Month	Price	Features
-Free	1,000	$0	Basic search
-Starter	10,000	$10	Summaries included
-Pro	100,000	$50	Advanced filters
-Optimization Tips
-python
+### Optimization Tips
+```python
 # Optimize search queries for better results
 optimized_queries = {
     "bitcoin_news": "Bitcoin cryptocurrency news",
@@ -142,45 +149,46 @@ result = exa.search(
     include_domains=["coindesk.com", "cointelegraph.com"],
     start_published_date="2024-09-01"
 )
-📈 Alpha Vantage API Setup
-Why Alpha Vantage?
-Comprehensive: Stock, crypto, forex data
+```
 
-Reliable: 99.5% uptime
+## 📈 Alpha Vantage API Setup
 
-Free Tier: Generous free usage
+### Why Alpha Vantage?
+- **Comprehensive**: Stock, crypto, forex data
+- **Reliable**: 99.5% uptime
+- **Free Tier**: Generous free usage
+- **Easy Integration**: Simple REST API
 
-Easy Integration: Simple REST API
+### Setup Steps
 
-Setup Steps
-Get Free API Key
+1. **Get Free API Key**
+   - Visit [alphavantage.co/support/#api-key](https://www.alphavantage.co/support/#api-key)
+   - Enter email address
+   - Key sent to email instantly
 
-Visit alphavantage.co/support/#api-key
+2. **Test Connection**
+   ```python
+   import requests
+   
+   api_key = "your_alpha_vantage_key"
+   url = f"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=USD&apikey={api_key}"
+   
+   response = requests.get(url)
+   data = response.json()
+   
+   if "Time Series (Digital Currency Daily)" in data:
+       print("✅ Alpha Vantage connected successfully")
+   ```
 
-Enter email address
+### Usage Limits
+| Tier | Calls/Day | Calls/Minute | Price |
+|------|-----------|--------------|-------|
+| **Free** | 25 | 5 | $0 |
+| **Basic** | 500 | 25 | $50/mo |
+| **Pro** | Unlimited | 200 | $150/mo |
 
-Key sent to email instantly
-
-Test Connection
-
-python
-import requests
-
-api_key = "your_alpha_vantage_key"
-url = f"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=USD&apikey={api_key}"
-
-response = requests.get(url)
-data = response.json()
-
-if "Time Series (Digital Currency Daily)" in data:
-    print("✅ Alpha Vantage connected successfully")
-Usage Limits
-Tier	Calls/Day	Calls/Minute	Price
-Free	25	5	$0
-Basic	500	25	$50/mo
-Pro	Unlimited	200	$150/mo
-API Functions Used
-python
+### API Functions Used
+```python
 # Functions we use in the project
 functions = {
     "DIGITAL_CURRENCY_DAILY": {
@@ -202,9 +210,12 @@ example_response = {
         }
     }
 }
-🔒 Security Best Practices
-API Key Management
-bash
+```
+
+## 🔒 Security Best Practices
+
+### API Key Management
+```bash
 # 1. Use environment variables (recommended)
 export GROQ_API_KEY="gsk_..."
 export EXA_API_KEY="..."
@@ -217,15 +228,15 @@ echo "ALPHA_VANTAGE_KEY=..." >> .env
 
 # 3. Add .env to .gitignore
 echo ".env" >> .gitignore
-Key Rotation Schedule
-Groq: Rotate every 90 days
+```
 
-Exa: Rotate every 90 days
+### Key Rotation Schedule
+- **Groq**: Rotate every 90 days
+- **Exa**: Rotate every 90 days  
+- **Alpha Vantage**: Rotate annually
 
-Alpha Vantage: Rotate annually
-
-Monitoring Usage
-python
+### Monitoring Usage
+```python
 def monitor_api_usage():
     """Monitor API usage across all services."""
     usage_stats = {
@@ -233,32 +244,39 @@ def monitor_api_usage():
         "exa_searches": get_exa_search_count(),
         "alphavantage_calls": get_av_call_count()
     }
-
+    
     # Alert if approaching limits
     for service, usage in usage_stats.items():
         if usage["percentage"] > 80:
             print(f"⚠️ {service} usage at {usage['percentage']}%")
-
+    
     return usage_stats
-🚨 Troubleshooting
-Common API Issues
-Invalid API Key
+```
 
-text
-Error: 401 Unauthorized
-Solution: Verify key is correct and active
-Rate Limit Exceeded
+## 🚨 Troubleshooting
 
-text
-Error: 429 Too Many Requests
-Solution: Wait or upgrade plan
-Quota Exceeded
+### Common API Issues
 
-text
-Error: 403 Forbidden  
-Solution: Wait for reset or upgrade
-Debug Mode
-python
+1. **Invalid API Key**
+   ```
+   Error: 401 Unauthorized
+   Solution: Verify key is correct and active
+   ```
+
+2. **Rate Limit Exceeded**
+   ```
+   Error: 429 Too Many Requests
+   Solution: Wait or upgrade plan
+   ```
+
+3. **Quota Exceeded**
+   ```
+   Error: 403 Forbidden  
+   Solution: Wait for reset or upgrade
+   ```
+
+### Debug Mode
+```python
 import logging
 
 # Enable debug logging for all APIs
@@ -271,12 +289,15 @@ def test_apis():
         "exa": test_exa_api(),
         "alphavantage": test_av_api()
     }
-
+    
     for api, status in tests.items():
         print(f"{api.upper()}: {'✅' if status else '❌'}")
-💡 Cost Optimization Tips
-Token Usage Optimization
-python
+```
+
+## 💡 Cost Optimization Tips
+
+### Token Usage Optimization
+```python
 # Groq token optimization strategies
 optimization_tips = {
     "shorter_prompts": "Use concise, focused prompts",
@@ -293,8 +314,10 @@ cost_breakdown = {
     "alphavantage_calls": "$0.00",  # Free tier
     "total_per_analysis": "$0.013"
 }
-Free Tier Maximization
-python
+```
+
+### Free Tier Maximization
+```python
 # Maximize free tier usage
 def optimize_free_usage():
     strategies = [
@@ -305,3 +328,4 @@ def optimize_free_usage():
         "Implement smart retry logic"
     ]
     return strategies
+```
