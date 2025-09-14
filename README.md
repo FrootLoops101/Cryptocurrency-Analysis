@@ -1,8 +1,8 @@
-🚀 Cryptocurrency Analysis Multi-Agent System
+ Cryptocurrency Analysis Multi-Agent System
 
 A sophisticated multi-agent system built with CrewAI that provides comprehensive cryptocurrency market analysis by combining real-time news sentiment and historical price data analysis.
 
-## 📊 Project Metrics
+##  Project Metrics
 
 - **Lines of Code**: ~500+ (Python)
 - **API Integrations**: 3 (Groq LLM, Exa News, Alpha Vantage)
@@ -12,27 +12,27 @@ A sophisticated multi-agent system built with CrewAI that provides comprehensive
 - **Token Efficiency**: Optimized for 70% fewer LLM tokens
 - **Success Rate**: 95%+ with proper API keys
 
-## 🎯 Features
+##  Features
 
-### 🤖 Multi-Agent Architecture
+###  Multi-Agent Architecture
 - **Coordinator Agent**: Manages analysis workflow
 - **News Analyst**: Real-time sentiment analysis from multiple sources
 - **Price Analyst**: Technical analysis of historical price data
 - **Report Writer**: Synthesizes comprehensive investment insights
 
-### 📈 Data Sources
+###  Data Sources
 - **News**: Real-time cryptocurrency news via Exa API
 - **Prices**: Historical price data via Alpha Vantage API
 - **Analysis**: Advanced LLM processing via Groq
 
-### 🔍 Analysis Capabilities
+###  Analysis Capabilities
 - Market sentiment classification (Bullish/Bearish/Neutral)
 - Technical price trend analysis
 - Risk assessment and liquidation warnings
 - Regulatory impact evaluation
 - Institutional investment tracking
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 ```bash
@@ -102,7 +102,7 @@ crypto-analysis/
     └── 📄 analysis_results.md            # Generated reports
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### API Keys Required
 
@@ -122,7 +122,7 @@ export EXA_API_KEY="your_exa_key"
 export ALPHA_VANTAGE_KEY="your_alpha_vantage_key"
 ```
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### Basic Analysis
 ```python
@@ -151,7 +151,7 @@ analyzer = CryptoAnalysisSystem(
 )
 ```
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 ### System Performance
 - **Average Analysis Time**: 3.2 minutes
@@ -173,7 +173,7 @@ analyzer = CryptoAnalysisSystem(
 - **Alpha Vantage**: 1 request (Free tier)
 - **Total Cost**: ~$0.013 per analysis
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -199,7 +199,7 @@ analyzer = CryptoAnalysisSystem(
 
 See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for detailed solutions.
 
-## 🔄 Development Timeline
+##  Development Timeline
 
 ### Version History
 - **v1.0.0** (Current): Initial release with multi-agent system
@@ -213,15 +213,4 @@ See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for detailed solutions.
 - Analysis limited to major cryptocurrencies
 - English-only news sources
 
-## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
-
-### Development Setup
-```bash
-# Clone and setup development environment
-git clone https://github.com/FrootLoops101/crypto-analysis.git
-cd crypto-analysis
-pip install -r requirements-dev.txt
-python -m pytest tests/
-```
