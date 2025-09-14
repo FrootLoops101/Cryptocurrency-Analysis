@@ -1,7 +1,7 @@
-🔑 API Setup Guide
+# API Setup Guide
 Complete guide for setting up all required APIs for the Cryptocurrency Analysis Multi-Agent System.
 
-📊 API Overview
+## API Overview
 API Service	Purpose	Free Tier	Paid Plans	Setup Difficulty
 Groq	LLM Processing	6,000 TPM	$0.27/1M tokens	⭐⭐ Easy
 Exa	News Search	1,000 searches	$10/10K searches	⭐⭐ Easy
@@ -10,7 +10,7 @@ Total Setup Time: ~15 minutes
 Monthly Free Usage: ~100 analyses
 Paid Monthly Cost: ~$20-50 for heavy usage
 
-🚀 Groq API Setup
+## Groq API Setup
 Why Groq?
 Speed: 10x faster inference than traditional APIs
 
