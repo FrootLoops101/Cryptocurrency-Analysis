@@ -1,8 +1,8 @@
-# 🔑 API Setup Guide
+#  API Setup Guide
 
 Complete guide for setting up all required APIs for the Cryptocurrency Analysis Multi-Agent System.
 
-## 📊 API Overview
+##  API Overview
 
 | API Service | Purpose | Free Tier | Paid Plans | Setup Difficulty |
 |-------------|---------|-----------|------------|------------------|
@@ -14,7 +14,7 @@ Complete guide for setting up all required APIs for the Cryptocurrency Analysis 
 **Monthly Free Usage**: ~100 analyses  
 **Paid Monthly Cost**: ~$20-50 for heavy usage
 
-## 🚀 Groq API Setup
+##  Groq API Setup
 
 ### Why Groq?
 - **Speed**: 10x faster inference than traditional APIs
@@ -92,7 +92,7 @@ models = {
 }
 ```
 
-## 🔍 Exa API Setup
+##  Exa API Setup
 
 ### Why Exa?
 - **Semantic Search**: Better than keyword-based search
@@ -151,7 +151,7 @@ result = exa.search(
 )
 ```
 
-## 📈 Alpha Vantage API Setup
+##  Alpha Vantage API Setup
 
 ### Why Alpha Vantage?
 - **Comprehensive**: Stock, crypto, forex data
@@ -177,7 +177,7 @@ result = exa.search(
    data = response.json()
    
    if "Time Series (Digital Currency Daily)" in data:
-       print("✅ Alpha Vantage connected successfully")
+       print(" Alpha Vantage connected successfully")
    ```
 
 ### Usage Limits
@@ -212,7 +212,7 @@ example_response = {
 }
 ```
 
-## 🔒 Security Best Practices
+##  Security Best Practices
 
 ### API Key Management
 ```bash
@@ -248,12 +248,12 @@ def monitor_api_usage():
     # Alert if approaching limits
     for service, usage in usage_stats.items():
         if usage["percentage"] > 80:
-            print(f"⚠️ {service} usage at {usage['percentage']}%")
+            print(f" {service} usage at {usage['percentage']}%")
     
     return usage_stats
 ```
 
-## 🚨 Troubleshooting
+##  Troubleshooting
 
 ### Common API Issues
 
@@ -294,7 +294,7 @@ def test_apis():
         print(f"{api.upper()}: {'✅' if status else '❌'}")
 ```
 
-## 💡 Cost Optimization Tips
+##  Cost Optimization Tips
 
 ### Token Usage Optimization
 ```python
