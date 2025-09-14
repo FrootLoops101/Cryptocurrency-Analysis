@@ -14,19 +14,16 @@ TPM: Limit 6000, Used 5526, Requested 535
 
 #### Solutions
 ```python
-# Option 1: Use efficient version
-python efficient_crypto_analysis.py
 
-# Option 2: Add delays between requests
+# Option 1: Add delays between requests
 import time
 time.sleep(2)  # Wait 2 seconds between calls
 
-# Option 3: Upgrade API tier
+# Option 2: Upgrade API tier
 # Visit: https://console.groq.com/settings/billing
 ```
 
 #### Prevention
-- Use `efficient_crypto_analysis.py` for free tiers
 - Monitor token usage with verbose logging
 - Implement exponential backoff
 
